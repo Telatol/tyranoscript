@@ -1,4 +1,4 @@
-;ティラノスクリプトサンプルゲーム
+;tyrannoscript 示例游戏
 
 *start
 
@@ -9,29 +9,29 @@
 
 [bg storage="room.jpg" time="100"]
 
-;メニューボタンの表示
+;菜单按钮显示
 @showmenubutton
 
-;メッセージウィンドウの設定
+;消息窗口设置
 [position layer="message0" left=160 top=500 width=1000 height=200 page=fore visible=true]
 
-;文字が表示される領域を調整
+;调整文本显示区域
 [position layer=message0 page=fore margint="45" marginl="50" marginr="70" marginb="60"]
 
 
-;メッセージウィンドウの表示
+;显示消息窗口
 @layopt layer=message0 visible=true
 
-;キャラクターの名前が表示される文字領域
+;显示角色姓名的文本区域
 [ptext name="chara_name_area" layer="message0" color="white" size=28 bold=true x=180 y=510]
 
-;上記で定義した領域がキャラクターの名前表示であることを宣言（これがないと#の部分でエラーになります）
+;声明上面定义的区域是角色的名字显示（没有这个，#部分会出错）
 [chara_config ptext="chara_name_area"]
 
-;このゲームで登場するキャラクターを宣言
+;宣告本游戏中出现的角色
 ;akane
 [chara_new  name="akane" storage="chara/akane/normal.png" jname="あかね"  ]
-;キャラクターの表情登録
+;角色面部表情注册
 [chara_face name="akane" face="angry" storage="chara/akane/angry.png"]
 [chara_face name="akane" face="doki" storage="chara/akane/doki.png"]
 [chara_face name="akane" face="happy" storage="chara/akane/happy.png"]
@@ -172,11 +172,11 @@ AppStoreやGooglePlayに向けてアプリ化して販売することもでき�
 
 #
 
-;キャラクター非表示
+;角色隐藏
 [chara_hide name="akane"]
 
 
-;メッセージを全画面に切り替え
+;将消息切换为全屏
 [position layer="message0" left=20 top=40 width=1200 height=660 page=fore visible=true ]
 
 どうかな? 物語をじっくり読ませたい場合はこの方式が便利ですね[l][r]

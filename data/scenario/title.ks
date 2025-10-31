@@ -16,7 +16,7 @@
 [s]
 
 *gamestart
-;一番最初のシナリオファイルへジャンプする
+;跳转到第一个场景文件
 @jump storage="scene1.ks"
 
 

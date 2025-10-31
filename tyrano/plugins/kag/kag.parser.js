@@ -13,7 +13,7 @@ tyrano.plugin.kag.parser = {
     loadConfig: function (call_back) {
         var that = this;
 
-        //同じディレクトリにある、KAG関連のデータを読み込み
+        //在同一目录下加载kag相关数据
         $.loadText("./data/system/Config.tjs", function (text_str) {
             var map_config = that.compileConfig(text_str);
 
@@ -23,7 +23,7 @@ tyrano.plugin.kag.parser = {
         });
     },
 
-    //コンフィグファイルをデータ構造に格納
+    //将配置文件存储在数据结构中
     compileConfig: function (text_str) {
         var error_str = "";
         var map_config = {};
@@ -60,7 +60,7 @@ tyrano.plugin.kag.parser = {
         return map_config;
     },
 
-    //シナリオをオブジェクト化する
+    //将场景具体化
     parseScenario: function (text_str) {
         var array_s = [];
 
@@ -345,34 +345,34 @@ tyrano.plugin.kag.parser = {
             }
         }
 
-        // 1文字ずつ見ていくぞ
+        // 让我们一一看看每个character。
         for (var j = 0; j < array_c.length; j++) {
             var c = array_c[j];
             switch (scanning_state) {
                 case SCANNING_TAG_NAME:
-                    // タグ名検出モード
+                    // 标签名称检测模式
                     if (c === " ") {
-                        // 空白に遭遇！
+                        // 遇到空白！
                         if (tag_name === "") {
-                            // まだタグ名になにも入っていないならタグ名検出モードを継続
-                            // 例) [ bg storage=room.jpg] のように先頭に空白が入っているケースに対応する
+                            // 如果还没有标签名，则继续标签名检测模式
+                            // 例）对应开头有空格的情况，如[ bg storage=room.jpg]
                         } else {
-                            // タグ名になにか入っている状態で空白に遭遇したならパラメータキー検出モードに遷移
+                            // 如果标签名称包含某些内容并且遇到空格，则切换到参数键检测模式。
                             scanning_state = SCANNING_PARAM_NAME;
                         }
                     } else {
-                        // 空白じゃないならタグ名に足していく
+                        // 如果不为空，则将其添加到标签名称中
                         tag_name += c;
                     }
                     break;
                 case SCANNING_PARAM_NAME:
-                    // パラメータキー検出モード
+                    // 参数按键检测方式
                     if (c === " ") {
-                        // 空白に遭遇！
+                        // 遇到空白！
                         if (param_name === "") {
-                            // パラメータキーになにも入っていないならパラメータキー検出モードを継続
+                            // 如果没有参数键，则继续参数键检测模式
                         } else {
-                            // パラメータキーになにか入っている場合はイコール検出モードに遷移
+                            // 如果参数键中有内容，则转入等量检测模式
                             scanning_state = SCANNING_EQUAL;
                         }
                     } else if (c === "=") {

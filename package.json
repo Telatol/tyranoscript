@@ -1,6 +1,7 @@
 {
 	"name": "tyranoscript",
-	"main": "app://./index.html",
+	"version": "1.0.0",
+	"main": "main.js",
 	"window": {
 		"title": "setup tyrano engine",
 		"icon": "link.png",
@@ -16,10 +17,15 @@
 		"plugin": true
 	},
 	"scripts": {
+		"start": "electron .",
+		"pack": "electron-builder --dir",
+		"dist": "electron-builder",
 		"lint": "eslint --ext .js ./tyrano",
 		"format": "prettier --write ./tyrano/**/*.js"
 	},
 	"devDependencies": {
+		"electron": "^39.0.0",
+		"electron-builder": "^26.0.12",
 		"eslint": "^8.20.0",
 		"eslint-config-prettier": "^8.5.0",
 		"prettier": "^2.7.1"

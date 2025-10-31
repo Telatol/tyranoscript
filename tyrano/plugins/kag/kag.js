@@ -1888,7 +1888,7 @@ tyrano.plugin.kag = {
             file_url = "./data/scenario/" + file_name;
         }
 
-        //キャッシュ確認
+        //检查缓存
         if (that.cache_scenario[file_url]) {
             if (call_back) {
                 var result_obj = that.cache_scenario[file_url];
@@ -1896,7 +1896,7 @@ tyrano.plugin.kag = {
                 var tag_obj = result_obj.array_s;
                 var map_label = result_obj.map_label;
 
-                //ラベル情報を格納
+                //存储标签信息
                 that.stat.map_label = map_label;
                 that.cancelStrongStop();
 
@@ -1928,7 +1928,7 @@ tyrano.plugin.kag = {
         this.cache_scenario["./data/scenario/" + filename] = result_obj;
     },
     
-     //キャッシュシナリオの削除
+     //删除缓存场景
     deleteCacheScenario: function (filename) {
         delete this.cache_scenario["./data/scenario/" + filename];
     },
